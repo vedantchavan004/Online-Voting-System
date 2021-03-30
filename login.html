@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--CSS -->
+    <link rel='stylesheet' type='text/css' href='/css/new1.css' />
+  </head>
+
+  <body>
+    <title>Login</title>
+    <div class="col-sl-1 pt-4" ></div>
+    <DIV STYLE="background-color:#000000; height:1px; width:100%;"></DIV>    
+      
+    <div class="bgcolor">
+      <table style="width: 50%;" >
+        <tr >
+          <th><a><img src="./white.JPG" height="75" width="30" class="opimg"></a></th>
+          <th><a><img src="./ie.png" height="75" width="37.5"></a></th>                        
+          <th><h1 class="font-weight-bold py-3">Online Voting System </h1> </th>                         
+        </tr>
+      </table>
+    </div>
+    
+    <DIV STYLE="background-color:#000000; height:1px; width:100%;"></DIV>
+
+    <section class="Form my-2 mx-5" >
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-9"></div>
+          <div class="col-sm-1"><a href="/" class="btn4 col-sm-7 ">Home</a></p></div>
+        </div>    
+        
+        <div class="row no-gutters">
+          <div class="col-lg-4"></div>
+          <div class="col-lg-7 px-5 pt-2">
+            <h1 class="font-weight-bold py-3">User Login </h1>
+            <h6>(Sign-in to Your Account)</h6>           
+          <form action="../controllers/authenticate-controller" method="POST">  
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <input type="Username" name="username" class="form-control my-3 p-4" placeholder="username">
+                </div>
+              </div>
+            
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <input type="password" name="password" class="form-control my-3 p-4" placeholder="Password">
+                </div>
+              </div>
+            
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <button type="submit" class="btn5 mt-3 mb-5">Login</button>
+                </div>
+              </div>
+                      
+              <p>Don't have an account? <a href="./register.html" style="color:darkblue;">Register here</a></p>          
+          </form>
+        </div>
+      </div>
+    </section>  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

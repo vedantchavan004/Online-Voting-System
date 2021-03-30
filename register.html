@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--CSS -->
+    <link rel='stylesheet' type='text/css' href='/css/new1.css' />
+  </head>
+      
+    
+  <body>
+    <title>Registration</title>
+    <div class="col-sl-1 pt-4" ></div>
+    
+    <DIV STYLE="background-color:#000000; height:1px; width:100%;"></DIV>
+    <div>  
+      <div class="bgcolor">
+        <table style="width: 50%;" >
+          <tr >
+            <th><a><img src="./white.JPG" height="75" width="30" class="opimg"></a></th>
+            <th><a><img src="./ie.png" height="75" width="37.5"></a></th>                        
+            <th><h1 class="font-weight-bold py-3">Online Voting System </h1> </th>                         
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <DIV STYLE="background-color:#000000; height:1px; width:100%;"></DIV>
+                             
+    <section class="Form my-2 mx-5">
+      <div class="container" >
+        <div class="row">
+          <div class="col-sm-9"></div> 
+          <div class="col-sm-1"><a href="/" class="btn1 col-sm-7 ">Home</a></div>
+        </div>  
+        <div class="row no-gutters">
+          <div class="col-lg-4"></div>
+          <div class="col-lg-7 " class="form-group">
+            <h1 class="font-weight-bold py-1">Register page </h1>
+            <div class="col-lg-7 px-5 pt-3"></div>
+
+            <form action="../controllers/register-controller" method="POST" autocomplete="off">
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <h6>VoterID :</h6><input type="text" id="voterID" name="voterID" onblur="validatevoterid()" required class="form-control my-0 p-4">                                    
+                </div>
+              </div>
+              
+              <div class="col-lg-7 px-5 pt-3"></div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <h6>Username :</h6><input type="text" id="username" name="username" onblur="validateUsername()" required class="form-control my-0 p-4">  
+                </div>
+              </div>
+
+              <div class="col-lg-7 px-5 pt-3"></div>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <h6>Password :</h6> <input type="password" id="password" name="password" required class="form-control my-0 p-4">
+                </div>
+              </div>
+
+              <div class="col-lg-7 px-5 pt-3"></div>
+              <div class="form-row">                                
+                <div class="col-lg-7">
+                  <h6>Contact  :</h6> <input type="int" id="contact"  name="contact" required class="form-control my-0 p-4">
+                </div>
+              </div>
+                      
+              <small class="form-text text-muted">  We'll never share your information with anyone else.</small>
+              <div class="form-row">
+                <div class="col-lg-7">
+                  <input type="submit" value="Register" class="btn5 mt-4 mb-3" >
+                </div>
+              </div>
+              
+              <p>Already registered? <a href="./login.html" style="color: wheat;">Login here</a></p>
+            </form>
+          </div>
+      </div>
+    </section>
+         
+     
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+    <script>
+          function validateUsername() {
+             var data ={};
+             data.username=$('input[name="username"]').val();
+            
+             
+             
+             $.ajax({
+                 type: 'POST',
+                 data: JSON.stringify(data),
+                 contentType: 'application/json',
+                 url: 'http://localhost:9000/validateUser',						
+                 success: function(data) {
+                     
+                     if(data==1)
+                     {
+                       alert("Username already exists");
+                       $('input[name="username"]').val("");
+                       $('input[name="username"]').focus(); 
+                                            
+                     }
+                 }
+             });
+         };
+         
+    </script>
+    <script>
+         function validatevoterid() 
+         {
+            var data ={};
+            data.voterID=$('input[name="voterID"]').val();
+              $.ajax({
+                 type: 'POST',
+                 data: JSON.stringify(data),
+                 contentType: 'application/json',
+                 url: 'http://localhost:9000/validatevoterid',						
+                 success: function(data) 
+                 {                     
+                     if(data==0){
+                       alert("Incorrect voterID ");
+                       $('input[name="voterID"]').val("");                     
+                     }
+                     else{
+                       validatevoterid1(); 
+                     }                     
+                 }
+            });
+          };
+
+         function validatevoterid1()
+            {
+                var data ={};
+                  data.voterID=$('input[name="voterID"]').val(); 
+                  $.ajax({
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    url: 'http://localhost:9000/validatevoterid1',						
+                    success: function(data) 
+                    {                     
+                      if(data==1)
+                      {
+                         alert("voterID already registered");
+                         $('input[name="voterID"]').val("");                                            
+                      }                                  
+                    }
+                  });                        
+            }             
+    </script>
+    
+  </body>
+</html>
+
